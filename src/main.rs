@@ -13,12 +13,12 @@ async fn main() {
 
     let data: Value = serde_json::from_str(output).unwrap();
     let output = format!(
-        "{}, {}, {}, {}\n",
+        "{}, {}, {}, {}, {}\n",
         data["ping"]["latency"],
         to_mb(data["download"]["bandwidth"].as_f64().unwrap()),
         to_mb(data["upload"]["bandwidth"].as_f64().unwrap()),
         data["timestamp"].as_str().unwrap(),
-
+        data["result"]["id"].as_str().unwrap()
     );
     println!("{}", output);
     log_file("main_log.csv", &output);
