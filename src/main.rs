@@ -6,7 +6,7 @@ use std::io::prelude::*;
 #[tokio::main]
 async fn main() {
     env_logger::init();
-    info!("Starting measurement");
+    info!("Starting measurement...");
     let output = get_output().await;
     let output = std::str::from_utf8(&output.stdout).unwrap();
     info!("Finished Measurement");
